@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import adMug from "../images/ad-mug-centered.png";
+import adpharmBarn from "../images/adpharm-barn.webp";
+import confetti from "../images/confetti.svg";
+
+const positions = [
+  "left-[12%] top-[12%] rotate-12",
+  "left-[17%] top-[14%] rotate-12",
+  "left-[24%] top-[19%] rotate-12",
+  "left-[20%] top-[12%] rotate-12",
+  "left-[15%] top-[20%] rotate-12",
+];
+---
+
+<Layout title="Adpharm Xmas 2023">
+  <main class="relative">
+    <div
+      class="mt-4 mx-auto flex items-center justify-center rounded-full h-24 aspect-square bg-gradient-to-r from-[#e1ecef] to-[#e7f2f5]"
+    >
+      <img
+        src={adpharmBarn.src}
+        alt="Adpharm barn"
+        class="relative w-full transform scale-125 object-contain px-4 mx-auto rounded-full"
+      />
+    </div>
+
+    <div class="mt-4 relative w-full">
+      <h1 class="w-full text-7xl font-brolimo text-center text-[#486055] text-opacity-40">Congrats!</h1>
+
+      <div class="w-[90%] mx-auto animate__animated animate__tada animate__delay-2s animate__slow animate__repeat-2">
+        <img
+          src={adMug.src}
+          alt="Adpharm mug"
+          class="mt-8 relative w-full px-8 mx-auto animate__animated animate__fadeInUp animate__slow"
+        />
+      </div>
+    </div>
+
+    <div class="absolute h-full w-full top-0 left-0">
+      {
+        ["💩", "😃", "🥵", "🥶", "🤌", "👀", "🧜", "🔥", "❤️‍🔥", "💯"].map((emoji, i) => {
+          const position = i >= positions.length ? positions[i % positions.length] : positions[i];
+
+          return <span class={`absolute text-4xl opacity-50 ${position}`}>{emoji}</span>;
+        })
+      }
+    </div>
+
+    <div>
+      <p class="text-md">You win an adpharm digital heated ember mug!</p>
+    </div>
+  </main>
+</Layout>
