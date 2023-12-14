@@ -28,25 +28,14 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
     //   origin: { y: 0.6 },
     // });
 
-    var end = Date.now() + 10 * 1000;
+    var end = Date.now() + 15 * 1000;
 
     // var scalar = 2;
     // var unicorn = confetti.shapeFromText({ text: "🦄", scalar });
     // "💩", "😃", "🥵", "🥶", "🤌", "👀", "🧜", "🔥", "❤️‍🔥", "💯"
-    // let orangeColors = ["#df5f36", "#e37f50", "#f1bb99"];
-    let multiColors = [
-      "#ef4444",
-      "#f59e0b",
-      "#22c55e",
-      "#06b6d4",
-      "#6366f1",
-      "#a855f7",
-      "#ec4899",
-      // "",
-      // "",
-      // "",
-      // "",
-    ];
+    let multiColors = ["#df5f36", "#e37f50", "#f1bb99"];
+    // let multiColors = ["#ef4444", "#f59e0b", "#22c55e", "#06b6d4", "#6366f1", "#a855f7", "#ec4899"];
+    var count = 0;
 
     let canvas = document.getElementById("confetti-canvas");
     canvas.confetti = canvas.confetti || confetti.create(canvas, { resize: true });
@@ -54,21 +43,23 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
     let defaults = {
       particleCount: 1.2,
       spread: 55,
-      colors: multiColors,
-      // shapes: [unicorn],
     };
 
     setTimeout(function () {
       (function frame() {
+        var color = multiColors[count++ % multiColors.length];
+
         canvas.confetti({
           ...defaults,
           angle: 60,
-          origin: { x: 0, y: 0.8 },
+          origin: { x: 0, y: 0.6 },
+          colors: [color],
         });
         canvas.confetti({
           ...defaults,
           angle: 120,
-          origin: { x: 1, y: 0.8 },
+          origin: { x: 1, y: 0.6 },
+          colors: [color],
         });
 
         if (Date.now() < end) {
@@ -78,19 +69,19 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
     }, 5200);
   </script>
 
-  <main id="top" class="relative text-[#486055] text-center px-4">
-    <div class="relative flex flex-col h-[90vh] pt-4">
+  <main id="top" class="relative text-[#486055] text-center px-4 bg-[#486055]/10">
+    <div class="relative flex flex-col h-screen pt-4 pb-24">
       <!-- <div class="flex-shrink-0 pt-4 pb-6">
         <img src={adLogomark.src} alt="Adpharm Digital logomark" class="w-8 mx-auto" />
       </div> -->
       <canvas id="confetti-canvas" class="absolute left-0 top-0 h-full w-full"></canvas>
 
-      <div class="flex-[2_2_0%] flex flex-col justify-center">
+      <div class="flex-[2_2_0%] flex flex-col justify-center text-lg">
         <p class="animate__animated animate__fadeIn">
-          The first order of business for the newest member of the Adpharm family...
+          The first order of business for the newest member of the Adpharm family?
         </p>
         <p class="pt-4 font-semibold animate__animated animate__fadeIn animate__slow animate__delay-2s">
-          ...solving the office mug crisis.
+          Addressing the mug shortage in the office.
         </p>
       </div>
 
@@ -99,27 +90,39 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
           <img
             src={adMug.src}
             alt="Adpharm mug"
-            class="mt-8 relative w-full px-8 mx-auto animate__animated animate__fadeIn animate__delay-5s"
+            class="mt-8 relative w-full px-8 mx-auto animate__animated animate__fadeIn animate__delay-4s"
           />
           <!-- class="mt-8 relative w-full px-8 mx-auto animate__animated animate__fadeIn animate__slow" -->
         </div>
 
-        <p class="pt-6 text-2xl font-semibold animate__animated animate__fadeIn animate__delay-4s">
-          So here's a mug just for you.
+        <p class="pt-8 text-2xl font-semibold animate__animated animate__fadeIn animate__delay-5s">
+          <!-- So here's a mug just for you. -->
+          <!-- So here's an <span class="text-[#df5f36]">Ember Smart Mug</span>,<br />courtesy of adpharm digital. -->
+           Congrats, you win an adpharm digital <span class="text-[#df5f36]">Ember Smart Mug</span>!
+          <!-- Here's a mug you can control with your phone. -->
           <!-- Your own <span class="text-[#df5f36]">Ember Smart Mug 2</span> will surely help. -->
         </p>
+
+        <!-- <p class="text-sm pt-2 animate__animated animate__fadeIn animate__delay-5s">(See Sherry to collect)</p> -->
+        <!-- <p class="text-sm pt-2 animate__animated animate__fadeIn animate__delay-5s">
+          And not just any mug
+        </p> -->
       </div>
 
       <div
         class="px-8 flex-shrink-0 h-36 pb-4 flex flex-col justify-end items-center animate__animated animate__fadeIn animate__delay-5s"
       >
-        <p class="text-sm pb-4">
-          <!-- Not just any mug too... it's an Ember Smart Mug &mdash; the mug that keeps drinks at the perfect temperature. -->
-
+        <!-- <p class="text-sm pb-4">
            This mug will keep your drinks at the perfect temperature... so you can stay at your desk and keep working.
-        </p>
+        </p> -->
 
-        <p class="text-sm pb-4">(See Sherry to collect)</p>
+        <!-- <p class="text-sm pb-4">Like you, this mug is "Smart".<br />You're smart like mug.</p> -->
+        <p class="text-sm pb-4">
+          (See Sherry to collect)
+          <!-- A fancy smart mug, too. -->
+          <!-- It's not the grand prize, but it's a pretty fancy mug... -->
+          <!-- Your very own <span class="text-[#df5f36]">Ember Smart Mug</span>. -->
+        </p>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -136,6 +139,11 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
     </div>
 
     <div class="mt-16 animate__animated animate__fadeIn animate__slow animate__delay-5s">
+      <!-- <p class="text-md px-8 mt-2">
+        <a href="https://ember.com/pages/technology" target="_blank" rel="noreferrer" class="text-indigo-600 underline">
+          The Ember Smart Mug 2.
+        </a>
+      </p> -->
       <a href="https://ember.com/pages/technology" target="_blank" rel="noreferrer">
         <img
           src={emberPhone.src}
@@ -144,10 +152,10 @@ import adLogomark from "../images/adpharm-digital-logo-transparent.png";
         />
       </a>
 
-      <p class="text-md px-16 mt-2">
-        <a href="https://ember.com/pages/technology" target="_blank" rel="noreferrer" class="text-indigo-600 underline"
-          >Learn more about your smart mug on the Ember website.</a
-        >
+      <p class="text-md px-8 mt-2 text-gray-500">
+        <a href="https://ember.com/pages/technology" target="_blank" rel="noreferrer" class="">
+          Tap to learn more about your new <br /><span class="text-[#df5f36]">Ember Smart Mug 2</span>.
+        </a>
       </p>
 
       <!-- <h3 class="bg-[#486055] text-white rounded-full py-0.5 px-1">See Sherry to collect!</h3> -->
