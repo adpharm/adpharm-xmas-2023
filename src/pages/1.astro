@@ -31,13 +31,15 @@ import adLogo from "../images/adpharm-digital-wordmark-transparent-black.png";
         canvas.confetti({
           ...defaults,
           angle: 60,
-          origin: { x: 0, y: 0.6 },
+          origin: { x: 0, y: 0.5 },
+          // origin: { x: 0, y: 0 },
           colors: [color],
         });
         canvas.confetti({
           ...defaults,
           angle: 120,
-          origin: { x: 1, y: 0.6 },
+          origin: { x: 1, y: 0.5 },
+          // origin: { x: 1, y: 0 },
           colors: [color],
         });
 
@@ -46,10 +48,45 @@ import adLogo from "../images/adpharm-digital-wordmark-transparent-black.png";
         }
       })();
     }, 2000);
+
+    // var duration = 15 * 1000;
+    // var animationEnd = Date.now() + duration;
+    // var skew = 1;
+
+    // function randomInRange(min, max) {
+    //   return Math.random() * (max - min) + min;
+    // }
+
+    // (function frame() {
+    //   var timeLeft = animationEnd - Date.now();
+    //   var ticks = Math.max(200, 500 * (timeLeft / duration));
+    //   var color = multiColors[count++ % multiColors.length];
+    //   skew = Math.max(0.8, skew - 0.001);
+
+    //   canvas.confetti({
+    //     particleCount: 1,
+    //     startVelocity: 0,
+    //     ticks: ticks,
+    //     origin: {
+    //       x: Math.random(),
+    //       // since particles fall down, skew start toward the top
+    //       y: Math.random() * skew - 0.2,
+    //     },
+    //     colors: [color],
+    //     shapes: ["circle"],
+    //     gravity: randomInRange(0.4, 0.6),
+    //     scalar: randomInRange(0.4, 1),
+    //     drift: randomInRange(-0.4, 0.4),
+    //   });
+
+    //   if (timeLeft > 0) {
+    //     requestAnimationFrame(frame);
+    //   }
+    // })();
   </script>
 
   <main id="top" class="relative text-[#486055] text-center px-4">
-    <div class="relative flex flex-col h-screen pt-4 pb-24">
+    <div class="relative flex flex-col h-screen pt-4 pb-36">
       <!-- <div class="flex-shrink-0 pt-4 pb-6">
         <img src={adLogomark.src} alt="Adpharm Digital logomark" class="w-8 mx-auto" />
       </div> -->
@@ -63,14 +100,14 @@ import adLogo from "../images/adpharm-digital-wordmark-transparent-black.png";
           ...solving the office mug crisis.
         </p> -->
         <h1
-          class="w-full text-7xl font-brolimo text-center text-[#486055] text-opacity-40 animate__animated animate__fadeIn animate__slow animate__delay-2s"
+          class="w-full text-6xl font-brolimo text-center text-[#486055] text-opacity-40 animate__animated animate__fadeIn animate__slow animate__delay-2s"
         >
           Congrats!
         </h1>
       </div>
 
-      <div class="flex-[2_2_0%]">
-        <div class="w-full mx-auto animate__animated animate__tada animate__slow animate__repeat-2 animate__delay-5s">
+      <div class="flex-[3_3_0%] pt-12">
+        <div class="w-[90%] mx-auto animate__animated animate__tada animate__slow animate__repeat-2 animate__delay-5s">
           <img
             src={goldCup.src}
             alt="Trophy"
@@ -80,23 +117,25 @@ import adLogo from "../images/adpharm-digital-wordmark-transparent-black.png";
         </div>
 
         <p class="pt-6 text-2xl font-semibold animate__animated animate__fadeIn animate__delay-4s">
-          You're the winner of the<br />2023 Adpharm Xmas Mug Challenge!
+          You're the winner of the<br />Adpharm Digital launch challenge!
           <!-- Your own <span class="text-[#df5f36]">Ember Smart Mug 2</span> will surely help. -->
         </p>
 
-        <p class="pt-4 animate__animated animate__fadeIn animate__delay-5s">
-          See Sherry to collect your grand prize 🏅
-        </p>
+        <p class="pt-8 animate__animated animate__fadeIn animate__delay-5s">See Sherry to collect your prize 🏅</p>
       </div>
 
-      <div
+      <!-- <div
         class="px-8 flex-shrink-0 h-16 pb-4 flex flex-col justify-end items-center animate__animated animate__fadeIn animate__delay-5s"
       >
         <p class="text-sm pb-4">(You get a mug, too)</p>
+      </div> -->
+
+      <div class="pt-8 flex-shrink-0 animate__animated animate__fadeIn animate__delay-5s">
+        <img src={adLogo.src} alt="Adpharm Digital logo" class="w-48 mx-auto" />
       </div>
     </div>
 
-    <div class="mt-16 animate__animated animate__fadeIn animate__slow animate__delay-5s">
+    <!-- <div class="mt-16 animate__animated animate__fadeIn animate__slow animate__delay-5s">
       <footer class="pt-32 pb-8">
         <div>
           <img src={adLogo.src} alt="Adpharm Digital logo" class="w-48 mx-auto" />
@@ -119,6 +158,6 @@ import adLogo from "../images/adpharm-digital-wordmark-transparent-black.png";
 
         <p class="mt-4 text-xs text-opacity-70 text-center">Adpharm Xmas 2023</p>
       </footer>
-    </div>
+    </div> -->
   </main>
 </Layout>
